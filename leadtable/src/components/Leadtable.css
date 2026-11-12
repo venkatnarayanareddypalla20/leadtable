@@ -1,0 +1,230 @@
+.leadtable {
+  --lt-bg: #ffffff;
+  --lt-surface: #f5f7fa;
+  --lt-text: #1c2430;
+  --lt-muted: #5f6b7a;
+  --lt-border: #dde3ea;
+  --lt-accent: #1f5fbf;
+  --lt-accent-text: #ffffff;
+
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1.25rem;
+  background: var(--lt-bg);
+  color: var(--lt-text);
+  border: 1px solid var(--lt-border);
+  border-radius: 10px;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .leadtable {
+    --lt-bg: #161b22;
+    --lt-surface: #1f2630;
+    --lt-text: #e6ebf1;
+    --lt-muted: #9aa6b5;
+    --lt-border: #2d3643;
+    --lt-accent: #6ea8ff;
+    --lt-accent-text: #0d1117;
+  }
+}
+
+.leadtable__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.leadtable__title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 650;
+}
+
+.leadtable__count {
+  margin: 0;
+  color: var(--lt-muted);
+  font-size: 0.9rem;
+}
+
+.leadtable__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.leadtable__search {
+  flex: 1 1 240px;
+  padding: 0.55rem 0.75rem;
+  font: inherit;
+  color: inherit;
+  background: var(--lt-surface);
+  border: 1px solid var(--lt-border);
+  border-radius: 6px;
+}
+
+.leadtable__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.leadtable__chip {
+  padding: 0.4rem 0.8rem;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--lt-text);
+  background: transparent;
+  border: 1px solid var(--lt-border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.leadtable__chip.is-active {
+  background: var(--lt-accent);
+  border-color: var(--lt-accent);
+  color: var(--lt-accent-text);
+}
+
+.leadtable__scroll {
+  overflow-x: auto;
+  border: 1px solid var(--lt-border);
+  border-radius: 8px;
+}
+
+.leadtable__table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.leadtable__table th,
+.leadtable__table td {
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--lt-border);
+  white-space: nowrap;
+}
+
+.leadtable__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.leadtable__table thead th {
+  background: var(--lt-surface);
+  padding: 0;
+}
+
+.leadtable__table .is-numeric {
+  text-align: right;
+}
+
+.leadtable__sort {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--lt-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.is-numeric .leadtable__sort {
+  justify-content: flex-end;
+}
+
+.leadtable__arrow {
+  font-size: 0.65rem;
+  color: var(--lt-accent);
+}
+
+.leadtable__table tbody tr:hover {
+  background: var(--lt-surface);
+}
+
+.leadtable__name {
+  font-weight: 600;
+}
+
+.leadtable__table a {
+  color: var(--lt-accent);
+  text-decoration: none;
+}
+
+.leadtable__table a:hover {
+  text-decoration: underline;
+}
+
+.leadtable__badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.leadtable__badge--new { background: #e0edff; color: #1a4f9c; }
+.leadtable__badge--contacted { background: #fff2d6; color: #8a5a00; }
+.leadtable__badge--qualified { background: #e6e0ff; color: #4b34a8; }
+.leadtable__badge--won { background: #d9f5e3; color: #17683a; }
+.leadtable__badge--lost { background: #fde2e2; color: #9b2222; }
+
+.leadtable__empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--lt-muted);
+  white-space: normal;
+}
+
+.leadtable__pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--lt-muted);
+}
+
+.leadtable__pager-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.leadtable__pager button {
+  padding: 0.45rem 0.9rem;
+  font: inherit;
+  color: var(--lt-text);
+  background: var(--lt-surface);
+  border: 1px solid var(--lt-border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.leadtable__pager button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.leadtable button:focus-visible,
+.leadtable input:focus-visible,
+.leadtable a:focus-visible {
+  outline: 2px solid var(--lt-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .leadtable {
+    margin: 0;
+    padding: 0.9rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
